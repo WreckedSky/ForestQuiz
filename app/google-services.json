@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "208157429669",
+    "project_id": "forestquiz-cd39d",
+    "storage_bucket": "forestquiz-cd39d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208157429669:android:e2f0747756189908ee624c",
+        "android_client_info": {
+          "package_name": "com.example.forestquiz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAy6JS05Jub8D70Wcaf9W9zthfXD3Tt2yM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
