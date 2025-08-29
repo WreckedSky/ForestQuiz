@@ -1,6 +1,5 @@
 package com.example.forestquiz.data
 
-// Note: No longer needs to be Parcelable as we are not passing it via navigation arguments.
 data class Qna(
     val q: String = "",
     val a: String = "",

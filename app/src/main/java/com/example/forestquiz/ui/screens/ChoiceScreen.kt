@@ -19,11 +19,10 @@ import com.example.forestquiz.viewmodel.QuizViewModel
 fun ChoiceScreen(
     viewModel: QuizViewModel,
     onWeekSelected: () -> Unit,
-    mode: String // "Quiz" or "Learn"
+    mode: String
 ) {
     Scaffold(
         topBar = {
-            // You can add a TopAppBar here if you like
         }
     ) { paddingValues ->
         LazyVerticalGrid(

@@ -74,7 +74,7 @@ fun FrontScreen(
             HyperlinkText(
                 fullText = "Made by Ghouse",
                 linkText = listOf("Ghouse"),
-                hyperlinks = listOf("https://github.com/GhouseHimself")
+                hyperlinks = listOf("https://github.com/WreckedSky")
             )
             HyperlinkText(
                 fullText = "Made using Jetpack Compose",

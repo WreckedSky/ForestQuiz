@@ -11,14 +11,14 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlin.random.Random
 
-// Represents the overall state of the application
+
 data class AppUiState(
     val questions: List<Qna> = emptyList(),
     val isLoading: Boolean = true,
     val error: String? = null
 )
 
-// Represents the state specifically for an active quiz or learning session
+
 data class QuizState(
     val activeQuestions: List<Qna> = emptyList(),
     val currentQuestionIndex: Int = 0,
@@ -35,11 +35,9 @@ class QuizViewModel : ViewModel() {
 
     private val repository = QuizRepository()
 
-    // Holds the main app state (loading, all questions, etc.)
     private val _appUiState = MutableStateFlow(AppUiState())
     val appUiState: StateFlow<AppUiState> = _appUiState.asStateFlow()
 
-    // Holds the state for the current active quiz
     private val _quizState = MutableStateFlow(QuizState())
     val quizState: StateFlow<QuizState> = _quizState.asStateFlow()
 
@@ -82,7 +80,7 @@ class QuizViewModel : ViewModel() {
     private fun loadQuestion(index: Int) {
         val question = _quizState.value.activeQuestions[index]
         val options = listOf(question.a, question.o1, question.o2, question.o3)
-        // Shuffling options for variety
+
         val shuffled = options.shuffled(Random(System.currentTimeMillis()))
         _quizState.update {
             it.copy(
@@ -118,7 +116,7 @@ class QuizViewModel : ViewModel() {
         if (nextIndex < _quizState.value.activeQuestions.size) {
             loadQuestion(nextIndex)
         } else {
-            // Quiz is finished
+
             _quizState.update { it.copy(isQuizFinished = true) }
         }
     }

@@ -13,7 +13,7 @@ import com.example.forestquiz.ui.screens.RandomQuizScreen
 import com.example.forestquiz.ui.screens.ResultsScreen
 import com.example.forestquiz.viewmodel.QuizViewModel
 
-// Defines routes as objects for type safety and to avoid "magic strings"
+
 sealed class Screen(val route: String) {
     object Front : Screen("front")
     object WeeklyQuizChoice : Screen("weekly_quiz_choice")
@@ -27,7 +27,6 @@ sealed class Screen(val route: String) {
 @Composable
 fun AppNavHost() {
     val navController = rememberNavController()
-    // The ViewModel is created here and shared across all screens in the NavHost
     val quizViewModel: QuizViewModel = viewModel()
 
     NavHost(navController = navController, startDestination = Screen.Front.route) {
@@ -63,7 +62,6 @@ fun AppNavHost() {
             RandomQuizScreen(
                 viewModel = quizViewModel,
                 onQuizFinished = {
-                    // Prevent going back to the quiz from the results screen
                     navController.popBackStack()
                     navController.navigate(Screen.Results.route)
                 }
@@ -74,7 +72,6 @@ fun AppNavHost() {
             QuizScreen(
                 viewModel = quizViewModel,
                 onQuizFinished = {
-                    // Prevent going back to the quiz from the results screen
                     navController.popBackStack()
                     navController.navigate(Screen.Results.route)
                 }
@@ -89,7 +86,6 @@ fun AppNavHost() {
 
         composable(Screen.Results.route) {
             ResultsScreen(viewModel = quizViewModel, onNavigateHome = {
-                // Clear the back stack and go to the home screen
                 navController.popBackStack(Screen.Front.route, inclusive = false)
             })
         }
